@@ -1,7 +1,11 @@
+//C语言变形参数目的函数和重写printf函数
+
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
+
 namespace myone{
+
 	void simple_va_fun(int start, ...){
 		va_list arg_ptr;
 		int nargvalue = start;
@@ -15,6 +19,7 @@ namespace myone{
 		va_end(arg_ptr);
 		return;
 	}
+
 	int myprintf(char* format, ...){
 		va_list va_ptr;
 		int n;
@@ -47,6 +52,7 @@ namespace myone{
 	}
 	
 }
+
 int main(){
 	myone::simple_va_fun(100, -1);
 	int i = 8; int j = 10;
