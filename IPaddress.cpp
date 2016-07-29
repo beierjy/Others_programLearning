@@ -111,7 +111,7 @@ int analysis(string str,vector<int>& vec){
 			return 1;
 		}
         else{
-            vec[5]++;
+            //vec[5]++;
 			return 1;
 		}
     }
