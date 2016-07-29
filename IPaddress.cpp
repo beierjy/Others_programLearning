@@ -5,6 +5,7 @@
 
 using namespace std;
 
+//判断一个字段是不是前面是1后面全是0
 bool isdivide(int c){
     int tag = 0;
     int a = c;
@@ -14,7 +15,7 @@ bool isdivide(int c){
         }
         else if(((a&1) == 1)&&(tag==0)){
             tag=1;
-            a=a>>1;//ע������Ҫ���и�ֵ
+            a=a>>1;//×¢ÒâÕâÀïÒª½øÐÐ¸³Öµ
         }
         else{
             a=a>>1;
@@ -22,7 +23,7 @@ bool isdivide(int c){
     }
     return true;    
 }
-
+//判断四个数是不是组成一个子网掩码
 bool ismask(int a,int b,int c,int d){
     if(!((a>=0&&a<=255)&&(b>=0&&b<=255)&&(c>=0&&c<=255)&&(d>=0&&d<=255)))
         return false;
@@ -53,6 +54,7 @@ bool ismask(int a,int b,int c,int d){
     }
     return true;
 }
+//解析IP地址
 int analysis(string str,vector<int>& vec){
     if(str.size()<=0){
        vec[5]++;
@@ -83,11 +85,6 @@ int analysis(string str,vector<int>& vec){
     if(ismask(ivec[4],ivec[5],ivec[6],ivec[7])){
         if(ivec[0]>=1 && ivec[0]<= 126){
             vec[0]++;
-			/*for(int i =0;i< 8;i++){
-					cout<< ivec[i]<<"\t";
-			
-    }
-			cout<<endl;*/
             if(ivec[0] == 10)
                 vec[6]++;
 			return 1;
@@ -132,7 +129,7 @@ int main(){
     }
 	int i = 0;
     while(cin>>str){
-		i++;
+		i++;//计数IP地址个数
 		analysis(str,vec); 
     }
     for(int i = 0;i<=6;i++){
